@@ -1,0 +1,71 @@
+use std::process::{Command, Stdio};
+use std::env;
+
+pub fn paru() {
+    let home = env::var("HOME").expect("Could not get HOME environment variable");
+    let _aurinstall = Command::new("sudo")
+        .args(["pacman", "-S", "--needed", "git", "base-devel"])
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("The deps couldn't be installed!");
+    let paru_dir = format!("{}/paru", home);
+    let _aurinstall1 = Command::new("git")
+        .args(["clone", "https://aur.archlinux.org/paru.git", &paru_dir])
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("Failed to clone the git!");
+    let _aurinstall2 = Command::new("sh")
+        .arg("-c")
+        .arg(format!("cd \"{}\" && makepkg -si --noconfirm", paru_dir))
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("The rest of the installation couldn't be completed!");
+    let _cleanup = Command::new("rm")
+        .args(["-rf", &paru_dir])
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("Failed to clean up paru directory!");
+}
+
+pub fn yay() {
+    let home = env::var("HOME").expect("Error!");
+    let _aurinstall = Command::new("sudo")
+        .args(["pacman", "-S", "--needed", "git", "base-devel"])
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("The deps couldn't be installed!");
+    let yay_dir = format!("{}/yay", home);
+    let _aurinstall1 = Command::new("git")
+        .args(["clone", "https://aur.archlinux.org/yay.git", &yay_dir])
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("Failed to clone the git!");
+    let _aurinstall2 = Command::new("sh")
+        .arg("-c")
+        .arg(format!("cd \"{}\" && makepkg -si --noconfirm", yay_dir))
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("The rest of the installation couldn't be completed!");
+    let _cleanup = Command::new("rm")
+        .args(["-rf", &yay_dir])
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("Failed to clean up yay directory!");
+}
+

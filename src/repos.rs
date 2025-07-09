@@ -8,7 +8,7 @@ pub fn cachy() {
         .stdout(Stdio::inherit())
         .stderr(Stdio::inherit())
         .output()
-        .expect("The deps couldn't be installed!");
+        .expect("Error while installing CachyOS repos");
 }
 
 pub fn chaoticaur() {

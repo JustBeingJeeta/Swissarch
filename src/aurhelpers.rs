@@ -3,7 +3,6 @@ use crate::stuff;
 use std::process::{Command, Stdio};
 use std::env;
 use std::io;
-//use main::mainmenu;
 pub fn paru() {
     let home = env::var("HOME").expect("Could not get HOME environment variable");
     let _aurinstall = Command::new("sudo")

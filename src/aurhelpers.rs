@@ -36,7 +36,7 @@ pub fn paru() {
         .stderr(Stdio::inherit())
         .output()
         .expect("Failed to clean up paru directory!");
-        let mut choice: i32 = 0;
+        let choice: i32 = 0;
     loop {
         let mut choice = String::new();
         io::stdin()
@@ -96,7 +96,7 @@ pub fn yay() {
     println!(r"The installation was successful!
     1. Main Menu
     2. Exit");
-    let mut choice: i32;
+    let mut _choice: i32;
     loop {
         let mut choice = String::new();
         io::stdin()

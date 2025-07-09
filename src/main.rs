@@ -1,9 +1,10 @@
 mod aurhelpers;
-//mod repos;
+mod repos;
 use aurhelpers::yay;
 use aurhelpers::paru;
 //use::aurhelpers::finished;
-//use repos::cachy;
+use repos::chaoticaur;
+use repos::cachy;
 use std::io;
 use clearscreen::clear;
 use std::process::{Command, Stdio};
@@ -95,7 +96,7 @@ fn stuff(usrchoice: i32) {
                clear().unwrap();
         println!(r"Choose an custom repo to install:
         1. CachyOS
-        2. WIP");
+        2. Chaotic aur (WON'T ADD THE REPO AUTOMATICALLY, The entry needs to be entered manually)");
         let crepo: i8;
         loop {
             let mut repo = String::new();
@@ -115,7 +116,10 @@ fn stuff(usrchoice: i32) {
         }
 
         if crepo == 1 {
-            //cachy();
+            cachy();
+        }
+        else if crepo == 2 {
+            chaoticaur();
         }
 
         

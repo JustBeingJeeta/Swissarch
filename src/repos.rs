@@ -1,3 +1,5 @@
+use crate::mainmenu;
+use std::io;
 use std::process::{Command, Stdio};
 
 pub fn cachy() {
@@ -9,6 +11,33 @@ pub fn cachy() {
         .stderr(Stdio::inherit())
         .output()
         .expect("Error while installing CachyOS repos");
+    println!(r"The installation was successful!
+    1. Main Menu
+    2. Exit");
+    let mut _choice: i32;
+    loop {
+        let mut choice = String::new();
+        io::stdin()
+            .read_line(&mut choice)
+            .expect("Something went wrong, please try again");
+        let _choice: i32 = match choice.trim().parse() {
+            Ok(1) => {
+                mainmenu();
+                break;
+            }
+            Ok(2) => {
+                std::process::exit(0);
+            }
+            Ok(_) => {
+                continue;
+            }
+            Err(_) => {
+                println!("Please enter a number");
+                continue;
+            }
+        };
+    }
+
 }
 
 pub fn chaoticaur() {
@@ -24,5 +53,32 @@ pub fn chaoticaur() {
 
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist");
+    println!(r"The installation was successful!
+    1. Main Menu
+    2. Exit");
+    let mut _choice: i32;
+    loop {
+        let mut choice = String::new();
+        io::stdin()
+            .read_line(&mut choice)
+            .expect("Something went wrong, please try again");
+        let _choice: i32 = match choice.trim().parse() {
+            Ok(1) => {
+                mainmenu();
+                break;
+            }
+            Ok(2) => {
+                std::process::exit(0);
+            }
+            Ok(_) => {
+                continue;
+            }
+            Err(_) => {
+                println!("Please enter a number");
+                continue;
+            }
+        };
+    }
+
 }
 

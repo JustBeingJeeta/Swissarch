@@ -35,16 +35,25 @@ pub fn paru() {
         .stderr(Stdio::inherit())
         .output()
         .expect("Failed to clean up paru directory!");
-        let choice: i32 = 0;
+    println!(r"The installation was successful!
+    1. Main Menu
+    2. Exit");
+    let mut _choice: i32;
     loop {
         let mut choice = String::new();
         io::stdin()
             .read_line(&mut choice)
             .expect("Something went wrong, please try again");
         let _choice: i32 = match choice.trim().parse() {
-            Ok(num) => {
-                choice = num;
-                break();
+            Ok(1) => {
+                mainmenu();
+                break;
+            }
+            Ok(2) => {
+                std::process::exit(0);
+            }
+            Ok(_) => {
+                continue;
             }
             Err(_) => {
                 println!("Please enter a number");
@@ -52,12 +61,7 @@ pub fn paru() {
             }
         };
     }
-    if choice == 1 {
-        mainmenu();
-    }
-    else if choice == 2 {
-        stuff(0)
-    }
+
 }
 
 pub fn yay() {

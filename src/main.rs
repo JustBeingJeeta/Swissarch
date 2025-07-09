@@ -22,7 +22,9 @@ pub fn mainmenu()  {
     println!(r"Select an option:
     1. Update
     2. Install aur helper
-    3. Install custom repos");
+    3. Install custom repos
+    4. Remove orphans
+    5. Quit");
     getusrinput();
 }
 
@@ -54,7 +56,34 @@ fn stuff(usrchoice: i32) {
             .stdout(Stdio::inherit())
             .stderr(Stdio::inherit())
             .output()
-            .expect("Failed to run command!");    
+            .expect("Failed to run command!");
+        println!(r"The installation was successful!
+        1. Main Menu
+        2. Exit");
+        let mut _choice: i32;
+        loop {
+            let mut choice = String::new();
+            io::stdin()
+                .read_line(&mut choice)
+                .expect("Something went wrong, please try again");
+            let _choice: i32 = match choice.trim().parse() {
+                Ok(1) => {
+                    mainmenu();
+                    break;
+                }
+                Ok(2) => {
+                   std::process::exit(0);
+                }
+                Ok(_) => {
+                    continue;
+                }
+                Err(_) => {
+                    println!("Please enter a number");
+                    continue;
+                }
+            };
+        }
+
     }
     else if usrchoice == 2 {
         clear().unwrap();
@@ -125,8 +154,20 @@ fn stuff(usrchoice: i32) {
 
         
     }
+    else if usrchoice == 4 {
+        println!(r"WARNING! This may break some packages, please examine the list before entering 'Y'");
+        let _orphans = Command::new("sh")
+            .arg("-c")
+            .arg(format!("pacman -Qtdq | sudo pacman -Rns"))
+            .stdin(Stdio::inherit())
+            .stdout(Stdio::inherit())
+            .stderr(Stdio::inherit())
+            .output()
+            .expect("Failed to run command!");
+        mainmenu()
+    }
     else {
-        main();
+        std::process::exit;
     }
 }
 

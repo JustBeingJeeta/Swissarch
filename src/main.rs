@@ -2,11 +2,15 @@ mod aurhelpers;
 //mod repos;
 use aurhelpers::yay;
 use aurhelpers::paru;
+//use::aurhelpers::finished;
 //use repos::cachy;
 use std::io;
 use clearscreen::clear;
 use std::process::{Command, Stdio};
 fn main() {
+    mainmenu()
+}
+pub fn mainmenu()  {
     clear().unwrap();
     println!(r"
     ┏━┛┃┃┃┛┏━┛┏━┛┏━┃┏━┃┏━┛┃ ┃
@@ -19,6 +23,10 @@ fn main() {
     1. Update
     2. Install aur helper
     3. Install custom repos");
+    getusrinput();
+}
+
+fn getusrinput() {
     let usrchoice: i32;
     loop {
         let mut userchoice = String::new();
@@ -72,9 +80,12 @@ fn stuff(usrchoice: i32) {
         };
         if aurhelper == 1 {
             yay();
+            //finished(usrchoice: i32);
+            //main();
         }
         else if aurhelper == 2 {
-            paru()
+            paru();
+            //finished(usrchoice: i32);
         }
         else {
             println!("Enter a valid option!")

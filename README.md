@@ -9,13 +9,12 @@ Swissarch is a CLI tool to manage various aspects of an arch(-based) installatio
 - No support for flatpak and snap installation
 - No automated installation
 
-## Features to add:
-
-- Complete Chaotic-aur installation.
-- Check for yay and paru to see if they were already installed.
-- Complete flatpak and snap support.
-- Custom meta packages (Gaming, General utils, system utils, etc.)
-- Removal of yay or paru
+## What it currently does
+At its stage, Swissarch allows you to:
+- Install yay and/or paru automatically
+- Install CachyOS repos and (partially) Chaotic-AUR
+- System update
+- Remove Orphaned packages
 
 ## How to test on your machine
 

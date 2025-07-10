@@ -7,6 +7,7 @@ Swissarch is a CLI tool to manage various aspects of an arch(-based) installatio
 - Requires manual steps to install Chaotic-aur
 - Pretty raw UX
 - No support for flatpak and snap installation
+- No automated installation
 
 ## Features to add:
 
@@ -15,3 +16,22 @@ Swissarch is a CLI tool to manage various aspects of an arch(-based) installatio
 - Complete flatpak and snap support.
 - Custom meta packages (Gaming, General utils, system utils, etc.)
 - Removal of yay or paru
+
+## How to test on your machine
+
+1. Clone the repository with:
+```
+git clone https://github.com/JustBeingJeeta/Swissarch && cd Swissarch
+```
+
+2. Make the binary executable:
+```
+chmod +x swissarch
+```
+
+3. Open the binary:
+```
+./swissarch
+```
+
+

@@ -3,7 +3,75 @@ use crate::stuff;
 use std::process::{Command, Stdio};
 use std::env;
 use std::io;
+use which::which;
+
 pub fn paru() {
+    if which("paru").is_ok() {
+        println!(r"paru is already installed, please enter an option:
+        1. Go back to Main Menu
+        2. Quit Swissarch");
+        let userquit: i8;
+        loop {
+            let mut userquit1 = String::new();
+            io::stdin()
+                .read_line(&mut userquit1)
+                .expect("Error!");
+            match userquit1.trim().parse() {
+                Ok(num) => {
+                    userquit = num;
+                    break;
+                }
+                Err(_) => {
+                    continue;
+                }
+            };
+        }
+        if userquit == 1 {
+            mainmenu();
+        }
+        else if userquit == 2 {
+            std::process::exit(0);
+        }
+    }
+    else {
+        paruin();
+    }
+}
+
+pub fn yay() {
+    if which("yay").is_ok() {
+        println!(r"yay is already installed, please enter an option:
+        1. Go back to Main Menu
+        2. Quit Swissarch");
+        let userquit: i8;
+        loop {
+            let mut userquit1 = String::new();
+            io::stdin()
+                .read_line(&mut userquit1)
+                .expect("Error!");
+            match userquit1.trim().parse() {
+                Ok(num) => {
+                    userquit = num;
+                    break;
+                }
+                Err(_) => {
+                    continue;
+                }
+            };
+        }
+        if userquit == 1 {
+            mainmenu();
+        }
+        else if userquit == 2 {
+            std::process::exit;
+        }
+    }
+    else {
+        yayin();
+    }
+}
+
+fn paruin() {
     let home = env::var("HOME").expect("Could not get HOME environment variable");
     let _aurinstall = Command::new("sudo")
         .args(["pacman", "-S", "--needed", "git", "base-devel"])
@@ -64,7 +132,7 @@ pub fn paru() {
 
 }
 
-pub fn yay() {
+fn yayin() {
     let home = env::var("HOME").expect("Error!");
     let _aurinstall = Command::new("sudo")
         .args(["pacman", "-S", "--needed", "git", "base-devel"])

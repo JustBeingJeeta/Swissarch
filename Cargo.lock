@@ -196,6 +196,7 @@ name = "swissarch"
 version = "0.1.0"
 dependencies = [
  "clearscreen",
+ "which",
 ]
 
 [[package]]

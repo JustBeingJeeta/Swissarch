@@ -33,4 +33,6 @@ chmod +x swissarch
 ./swissarch
 ```
 
+### This project is still in early development, of course i plan on adding more features during time, but feel free to inspect or contribute to the code. Also, any advice on possible addictions is gladly accepted
+
 

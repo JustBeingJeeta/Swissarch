@@ -1,5 +1,5 @@
+use crate::alldone;
 use crate::mainmenu;
-use crate::stuff;
 use std::process::{Command, Stdio};
 use std::env;
 use std::io;
@@ -63,7 +63,7 @@ pub fn yay() {
             mainmenu();
         }
         else if userquit == 2 {
-            std::process::exit;
+            std::process::exit(0);
         }
     }
     else {
@@ -103,32 +103,7 @@ fn paruin() {
         .stderr(Stdio::inherit())
         .output()
         .expect("Failed to clean up paru directory!");
-    println!(r"The installation was successful!
-    1. Main Menu
-    2. Exit");
-    let mut _choice: i32;
-    loop {
-        let mut choice = String::new();
-        io::stdin()
-            .read_line(&mut choice)
-            .expect("Something went wrong, please try again");
-        let _choice: i32 = match choice.trim().parse() {
-            Ok(1) => {
-                mainmenu();
-                break;
-            }
-            Ok(2) => {
-                std::process::exit(0);
-            }
-            Ok(_) => {
-                continue;
-            }
-            Err(_) => {
-                println!("Please enter a number");
-                continue;
-            }
-        };
-    }
+    alldone();
 
 }
 
@@ -164,30 +139,5 @@ fn yayin() {
         .stderr(Stdio::inherit())
         .output()
         .expect("Failed to clean up yay directory!");
-    println!(r"The installation was successful!
-    1. Main Menu
-    2. Exit");
-    let mut _choice: i32;
-    loop {
-        let mut choice = String::new();
-        io::stdin()
-            .read_line(&mut choice)
-            .expect("Something went wrong, please try again");
-        let _choice: i32 = match choice.trim().parse() {
-            Ok(1) => {
-                mainmenu();
-                break;
-            }
-            Ok(2) => {
-                std::process::exit(0);
-            }
-            Ok(_) => {
-                continue;
-            }
-            Err(_) => {
-                println!("Please enter a number");
-                continue;
-            }
-        };
-    }
+    alldone();
 }

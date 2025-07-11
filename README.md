@@ -3,7 +3,6 @@
 Swissarch is a CLI tool to manage various aspects of an arch(-based) installation, currently in pre-alpha state. Swissarch allows you to customize your arch installation modularly with what you want, but with automated steps and a menu-centric environment.
 
 ## Current rough spots:
-- Requires manual steps to install Chaotic-AUR
 - Pretty raw UX
 - No support for flatpak and snap installation
 - No automated installation of the program itself
@@ -11,8 +10,8 @@ Swissarch is a CLI tool to manage various aspects of an arch(-based) installatio
 ## What it currently does
 At its stage, Swissarch allows you to:
 - Install yay and/or paru automatically
-- Install CachyOS repos and (partially) Chaotic-AUR
-- System update
+- Install CachyOS repos and Chaotic-AUR
+- Do a System update
 - Remove Orphaned packages
 
 ## How to test on your machine

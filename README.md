@@ -1,6 +1,6 @@
 # Swissarch
 
-Swissarch is a CLI tool to manage various aspects of an arch(-based) installation, currently in pre-alpha state. Swissarch allows you to customize your arch installation modularly with what you want, but with automated steps and a menu-centric environment.
+Swissarch is a CLI tool to manage various aspects of an arch(-based) installation, currently in Alpha state. Swissarch allows you to customize your arch installation modularly with what you want, but with automated steps and a menu-centric environment.
 
 ## Current rough spots:
 - Pretty raw UX
@@ -17,19 +17,10 @@ At its stage, Swissarch allows you to:
 
 ## How to test on your machine
 
-1. Clone the repository with:
-```
-git clone https://github.com/JustBeingJeeta/Swissarch && cd Swissarch
-```
+Just run this command, remember not to run any script you find on the internet without reviewing it! 
 
-2. Make the binary executable:
 ```
-chmod +x swissarch
-```
-
-3. Open the binary:
-```
-./swissarch
+curl -sL https://raw.githubusercontent.com/JustBeingJeeta/Swissarch/master/install.sh | bash
 ```
 
 ### This project is still in early development, of course i plan on adding more features during time, but feel free to inspect or contribute to the code. Any advice on possible additions is gladly accepted

@@ -9,9 +9,10 @@ Swissarch is a CLI tool to manage various aspects of an arch(-based) installatio
 
 ## What it currently does
 At its stage, Swissarch allows you to:
-- Install yay and/or paru automatically
-- Install CachyOS repos and Chaotic-AUR
+- Install yay and/or paru 
+- Install CachyOS repos and/or Chaotic-AUR 
 - Do a System update
+- Install Nvidia drivers automatically (both closed and open modules)
 - Remove Orphaned packages
 
 ## How to test on your machine
@@ -31,6 +32,6 @@ chmod +x swissarch
 ./swissarch
 ```
 
-### This project is still in early development, of course i plan on adding more features during time, but feel free to inspect or contribute to the code. Also, any advice on possible additions is gladly accepted
+### This project is still in early development, of course i plan on adding more features during time, but feel free to inspect or contribute to the code. Any advice on possible additions is gladly accepted
 
 Also, this is my first more serious project, so please be kind :)

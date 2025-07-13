@@ -5,4 +5,5 @@ edition = "2024"
 
 [dependencies]
 clearscreen = "4.0.2"
+system_shutdown = "4.0.1"
 which = "8.0.0"

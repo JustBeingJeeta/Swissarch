@@ -144,12 +144,26 @@ fn actions(user_choice: i32) {
 
 pub fn update() {
     let _update = Command::new("sudo")
-            .args(["pacman", "-Syu"])
-            .stdin(Stdio::inherit())
-            .stdout(Stdio::inherit())
-            .stderr(Stdio::inherit())
-            .output()
-            .expect("Failed to run command!");
+        .args(["pacman", "-Syu"])
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("Failed to run command!");
+    let _aur_updates = Command::new("yay")
+        .arg("-Syu")
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("Failed to run command!");
+    let _flatpak_updates = Command::new("flatpak")
+        .arg("update")
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .output()
+        .expect("Failed to run command!");
     alldone_reboot();
 }
 

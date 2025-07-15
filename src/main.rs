@@ -150,7 +150,7 @@ pub fn update() {
             .stderr(Stdio::inherit())
             .output()
             .expect("Failed to run command!");
-    alldone()
+    alldone_reboot();
 }
 
 pub fn alldone() {
